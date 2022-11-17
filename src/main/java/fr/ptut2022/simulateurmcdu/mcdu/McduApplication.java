@@ -20,4 +20,6 @@ public class McduApplication {
 		model.addAttribute("name", name);
 		return "greeting";
 	}
+
+
 }
