@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController()
 public class WindowRestController {
-    private Mcdu mcdu = new Mcdu();
+    private final Mcdu mcdu = Mcdu.INSTANCE;
     @GetMapping("/windows")
     public Window[] getWindows() {
         return mcdu.getWindows().toArray(Window[]::new);
