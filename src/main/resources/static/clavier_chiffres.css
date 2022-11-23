@@ -1,0 +1,8 @@
+.clavier_chiffres {
+	width  : 8.5em;
+	border : solid grey;
+	display: grid;
+	grid: auto / auto auto auto;
+	position : relative;
+	float: left;
+}

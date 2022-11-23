@@ -1,0 +1,33 @@
+body {
+	background : grey;
+}
+
+.MCDU {
+	position: relative;
+}
+
+button {
+	background : black;
+	color : white;
+	width  : 44px;
+	height : 44px;
+}
+
+#un_truc {
+	width:100%;
+
+}
+
+#autre_truc {
+	float: left;
+}
+
+#top_mcdu {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#top_mcdu > div {
+	float: left;
+}

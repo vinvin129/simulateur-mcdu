@@ -1,0 +1,8 @@
+.clavier_lettres {
+	float: right;
+	width: 13.7em;
+	display: grid;
+	grid: auto / auto auto auto auto auto;
+	border : solid grey;
+	position : relative;
+}

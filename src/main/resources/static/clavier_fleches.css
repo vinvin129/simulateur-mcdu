@@ -1,0 +1,17 @@
+.clavier_fleches {
+	width: 6em;
+	display: grid;
+	grid: auto / auto auto;
+	grid-gap: 5px;
+	border : solid grey;
+	position : relative;
+}
+
+.clavier_fleches button {
+	width: 50px;
+	height: 40px;
+}
+
+.clavier_fleches .fleche {
+	height: 20px;
+}

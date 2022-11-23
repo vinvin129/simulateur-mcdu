@@ -1,0 +1,6 @@
+.clavier_lskright {
+	border : solid grey;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}

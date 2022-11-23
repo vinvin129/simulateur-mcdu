@@ -1,0 +1,13 @@
+.clavier_commandes {
+	width  : 100%;
+	display: grid;
+	grid: auto / auto auto auto auto auto auto;
+	grid-gap: 5px;
+	border : solid grey;
+	position: relative;
+
+}
+
+.clavier_commandes button {
+	width: auto;
+}
