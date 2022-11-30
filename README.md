@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 
-What things you need to install the software and how to install them.
+You need Maven 3 and the port 8080
 
 ```
 Examples
@@ -24,7 +24,7 @@ Examples
 
 ## Deployment
 
-Add additional notes about how to deploy this on a production system.
+run mvn jar:jar to build the project and generate a jar. run the jar to start the server.
 
 ## Resources
 
