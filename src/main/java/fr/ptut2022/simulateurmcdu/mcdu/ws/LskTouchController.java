@@ -26,4 +26,10 @@ public class LskTouchController {
                                 .map(Mapping::data)
                                 .findFirst().orElse(null));
     }
+
+    @MessageMapping("/lskChangeMapping")
+    @SendTo("/topic/lskChangeMapping")
+    public Mapping lskChangeMapping(Mapping mapping) {
+        return mapping;
+    }
 }
