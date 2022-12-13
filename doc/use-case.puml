@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor Utilisateur as user
+actor Paramétreur as param
+
+usecase (Intéragir avec les touches du MCDU) as intTouches
+usecase (Paramétrer l'écran) as paramEcr
+usecase (Définir les données liées aux touches LSK) as defDataTouches
+usecase (Ecouter les événements du MCDU) as ecoutEvMcdu
+
+user --> intTouches
+param --> paramEcr
+paramEcr ..> defDataTouches: include
+paramEcr ..> ecoutEvMcdu: include
+
+@enduml
