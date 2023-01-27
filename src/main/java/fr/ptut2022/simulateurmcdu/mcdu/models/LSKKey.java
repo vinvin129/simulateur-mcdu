@@ -1,6 +1,6 @@
 package fr.ptut2022.simulateurmcdu.mcdu.models;
 
-public enum McduLsk {
+public enum LSKKey {
     LSK1L, LSK1R,
     LSK2L, LSK2R,
     LSK3L, LSK3R,
