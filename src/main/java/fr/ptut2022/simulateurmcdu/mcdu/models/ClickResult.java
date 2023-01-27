@@ -1,9 +1,12 @@
 package fr.ptut2022.simulateurmcdu.mcdu.models;
 
 import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public class ClickResult {
-    private LSKKey lskKey;
-    private String input;
+    @NonNull private LSKKey lskKey;
+    @NonNull private String input;
 }

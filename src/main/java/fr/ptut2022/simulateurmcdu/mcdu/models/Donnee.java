@@ -1,10 +1,11 @@
 package fr.ptut2022.simulateurmcdu.mcdu.models;
 
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 public class Donnee {
-    private String label;
-    private String valeur;
-    private String couleur;
+    @NonNull private String label;
+    @NonNull private String valeur;
+    @NonNull private String couleur;
 }
