@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Donnee {
+    -label: String
+    -valeur: String
+    -couleur: String
+}
+
+interface McduClickEvenement
+interface ParamModifEvenement
+
+class EndpointWebsocket
+
+class EndpointRest
+
+enum LSKKey
+
+class Mcdu {
+    -mapping: Map<LSKKey, Donnee>
+
+    +changementMapping(LSKKey, Donnee): void
+    +getActualDonnee(LSKKey): String
+    +addMcduClickListener(McduClickEvenement): void
+    +removeMcduClickListener(McduClickEvenement): void
+    +addParamModifListener(ParamModifEvenement): void
+    +removeParamModifListener(ParamModifEvenement): void
+
+    #fire(Class<>): void
+}
+
+class ClickResult {
+    -lskKey: LSKKey
+    -input: String
+}
+
+class ChangementDonnee {
+    -lskKey: LSKKey
+    -donnee: Donnee
+}
+
+@enduml
