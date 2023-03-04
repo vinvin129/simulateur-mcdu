@@ -1,12 +1,12 @@
 package fr.ptut2022.simulateurmcdu.mcdu.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ChangementDonnee {
     @NonNull private LSKKey lskKey;
-    @NonNull private Donnee donnee;
+    private Donnee donnee;
 }

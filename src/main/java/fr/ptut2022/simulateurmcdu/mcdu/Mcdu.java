@@ -1,20 +1,20 @@
 package fr.ptut2022.simulateurmcdu.mcdu;
 
+import fr.ptut2022.simulateurmcdu.mcdu.events.SettingChangeMappingEvent;
 import fr.ptut2022.simulateurmcdu.mcdu.models.ChangementDonnee;
 import fr.ptut2022.simulateurmcdu.mcdu.models.Donnee;
 import fr.ptut2022.simulateurmcdu.mcdu.models.LSKKey;
 import org.springframework.lang.Nullable;
 
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class Mcdu {
     public static final Mcdu INSTANCE = new Mcdu();
 
     private final Map<LSKKey, Donnee> mapping = new EnumMap<>(LSKKey.class);
     private boolean connected = false;
+
+    private List<SettingChangeMappingEvent> listeners = new ArrayList<>();
 
     private Mcdu() {
         mapping.put(LSKKey.LSK1L, null);
@@ -42,6 +42,9 @@ public class Mcdu {
 
     public void changementMapping(LSKKey key, @Nullable Donnee donnee) {
         mapping.replace(key, donnee);
+        this.listeners.forEach(
+                settingChangeMappingEvent -> settingChangeMappingEvent.event(new ChangementDonnee(key, donnee))
+        );
     }
 
     public boolean isConnected() {
@@ -50,5 +53,9 @@ public class Mcdu {
 
     public void setConnected(boolean connected) {
         this.connected = connected;
+    }
+
+    public void addListener(SettingChangeMappingEvent event) {
+        this.listeners.add(event);
     }
 }

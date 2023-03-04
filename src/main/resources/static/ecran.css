@@ -3,3 +3,9 @@
 	background : black;
 	color: white;
 }
+
+.ecran .ecran-ligne {
+	padding: 1em 1em 0.2em;
+	display: flex;
+	justify-content: space-between;
+}
