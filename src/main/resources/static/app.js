@@ -10,11 +10,10 @@ function connect() {
         console.log('Connected: ' + frame);
         stompClient.subscribe('/mcdu/receive/newView', function (greeting) {
             console.log(JSON.parse(greeting.body));
+            const json = JSON.parse(greeting.body);
+            let lskKey = json.lskKey;
+            ecranSystem.setvalue({num: parseInt(lskKey[3]), direction: lskKey[4], value: {text: json.donnee.valeur, couleur: json.donnee.couleur}})
         });
-        stompClient.send("/mcdu/emit/click", {}, JSON.stringify({
-            lskKey: 'LSK1L',
-            input: 'ABCD'
-        }));
     });
 }
 
@@ -30,15 +29,6 @@ window.onLSKClick = onLSKClick;
 
 $(function () {
     connect();
-    const lsk = {
-        num: 1,
-        direction: "L",
-        value: {
-            text: 'Toto !!!',
-            color: 'black'
-        }
-    };
-    ecranSystem.setvalue(lsk);
 
     ecranSystem.initializationKeyboard();
 });

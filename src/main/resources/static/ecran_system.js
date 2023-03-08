@@ -159,7 +159,9 @@ class Ecran {
     }
 
     setvalue(lskKey) {
-        this.getlskValueElt(lskKey.num, lskKey.direction).innerHTML = lskKey.value.text;
+        let lskValueElt = this.getlskValueElt(lskKey.num, lskKey.direction);
+        lskValueElt.innerHTML = lskKey.value.text;
+        lskValueElt.style.color = lskKey.value.couleur;
     }
 
     initializationKeyboard() {
