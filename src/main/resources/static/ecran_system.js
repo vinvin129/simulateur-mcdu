@@ -179,6 +179,18 @@ class Ecran {
         document.getElementById('CLEAR').addEventListener("click", () => this.clearInputText())
     }
 
+    listenControlKey(callback) {
+        const controls1Elt = document.getElementsByClassName('clavier_commandes')[0].getElementsByTagName('button');
+        const controls2Elt = document.getElementsByClassName('clavier_fleches')[0].getElementsByTagName('button');
+        for (let keyElt of controls1Elt) {
+            keyElt.addEventListener("click", () => callback(keyElt.id));
+        }
+
+        for (let keyElt of controls2Elt) {
+            keyElt.addEventListener("click", () => callback(keyElt.id));
+        }
+    }
+
     keyPressed(letter, type) {
         console.log(`lettre : ${letter}; type : ${type}`);
         this.inputTextElt.innerText += letter.toUpperCase();

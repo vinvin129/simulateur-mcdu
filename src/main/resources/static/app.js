@@ -14,12 +14,18 @@ function connect() {
             let lskKey = json.lskKey;
             ecranSystem.setvalue({num: parseInt(lskKey[3]), direction: lskKey[4], value: {text: json.donnee.valeur, couleur: json.donnee.couleur}})
         });
+        ecranSystem.listenControlKey(key => {
+            stompClient.send("/mcdu/emit/click/control", {}, JSON.stringify({
+                key: key,
+                input: ecranSystem.getInput()
+            }));
+        });
     });
 }
 
 function onLSKClick(lskKey) {
-    stompClient.send("/mcdu/emit/click", {}, JSON.stringify({
-        lskKey: lskKey,
+    stompClient.send("/mcdu/emit/click/lsk", {}, JSON.stringify({
+        key: lskKey,
         input: ecranSystem.getInput()
     }));
     ecranSystem.clearInputText();

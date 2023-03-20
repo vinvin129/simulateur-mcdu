@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class ClickResult {
-    @NonNull private LSKKey lskKey;
+public class LSKClickResult {
+    @NonNull private LSKKey key;
     @NonNull private String input;
 }

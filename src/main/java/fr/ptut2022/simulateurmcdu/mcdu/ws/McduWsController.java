@@ -1,7 +1,8 @@
 package fr.ptut2022.simulateurmcdu.mcdu.ws;
 
 import fr.ptut2022.simulateurmcdu.mcdu.Mcdu;
-import fr.ptut2022.simulateurmcdu.mcdu.models.ClickResult;
+import fr.ptut2022.simulateurmcdu.mcdu.models.ControlClickResult;
+import fr.ptut2022.simulateurmcdu.mcdu.models.LSKClickResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -17,9 +18,15 @@ public class McduWsController {
                 changementDonnee -> messagingTemplate.convertAndSend("/mcdu/receive/newView", changementDonnee));
     }
 
-    @MessageMapping("/click")
-    @SendTo("/setting/receive/click")
-    public ClickResult click(ClickResult clickResult) {
+    @MessageMapping("/click/lsk")
+    @SendTo("/setting/receive/click/lsk")
+    public LSKClickResult lskClick(LSKClickResult clickResult) {
+        return clickResult;
+    }
+
+    @MessageMapping("/click/control")
+    @SendTo("/setting/receive/click/control")
+    public ControlClickResult controlClick(ControlClickResult clickResult) {
         return clickResult;
     }
 
