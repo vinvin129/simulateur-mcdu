@@ -33,5 +33,6 @@ public class McduWsController {
     @MessageMapping("/connexion")
     public void connexion(String name) {
         Mcdu.INSTANCE.setConnected(true);
+        // TODO changer ça
     }
 }
