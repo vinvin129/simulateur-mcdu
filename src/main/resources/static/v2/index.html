@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MCDU v2</title>
+  <link href="mcdu_squelette.css" rel="stylesheet" type="text/css">
+  <script src="/webjars/jquery/jquery.min.js"></script>
+  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+<div id="mcdu_simulator">
+  <div id="mcdu_north">
+    <div id="lsk_left">
+      <div id="lsk_l1" onclick="onLSKClick('LSK1L')" class="lsk_button"><div></div></div>
+      <div id="lsk_l2" onclick="onLSKClick('LSK2L')" class="lsk_button"><div></div></div>
+      <div id="lsk_l3" onclick="onLSKClick('LSK3L')" class="lsk_button"><div></div></div>
+      <div id="lsk_l4" onclick="onLSKClick('LSK4L')" class="lsk_button"><div></div></div>
+      <div id="lsk_l5" onclick="onLSKClick('LSK5L')" class="lsk_button"><div></div></div>
+      <div id="lsk_l6" onclick="onLSKClick('LSK6L')" class="lsk_button"><div></div></div>
+    </div>
+
+    <div id="display">
+      <div id="display_top">
+        <div id="display_title">
+          Init
+        </div>
+      </div>
+      <div id="display_data">
+        <!-- ligne 1 -->
+        <div class="data lsk_data data_left">
+          <div class="data_title">
+            Co rte
+          </div>
+          <div class="data_value">
+            0000987
+          </div>
+        </div>
+
+        <div class="data data_center">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <div class="data lsk_data data_right">
+          <div class="data_title">
+            From/to
+          </div>
+          <div class="data_value">
+            ____/____
+          </div>
+        </div>
+
+        <!-- ligne 2 -->
+        <div class="data lsk_data data_left">
+          <div class="data_title">
+            Co rte
+          </div>
+          <div class="data_value">
+            0000987
+          </div>
+        </div>
+
+        <div class="data data_center">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <div class="data lsk_data data_right">
+          <div class="data_title">
+            From/to
+          </div>
+          <div class="data_value">
+            ____/____
+          </div>
+        </div>
+
+        <!-- ligne 3 -->
+        <div class="data lsk_data data_left">
+          <div class="data_title">
+            Co rte
+          </div>
+          <div class="data_value">
+            0000987
+          </div>
+        </div>
+
+        <div class="data data_center">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <div class="data lsk_data data_right">
+          <div class="data_title">
+            From/to
+          </div>
+          <div class="data_value">
+            ____/____
+          </div>
+        </div>
+
+        <!-- ligne 4 -->
+        <div class="data lsk_data data_left">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <div class="data data_center">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <div class="data lsk_data data_right">
+          <div class="data_title">
+            From/to
+          </div>
+          <div class="data_value">
+            ____/____
+          </div>
+        </div>
+
+        <!-- ligne 5 -->
+        <div class="data lsk_data data_left">
+          <div class="data_title">
+            Co rte
+          </div>
+          <div class="data_value">
+            0000987
+          </div>
+        </div>
+
+        <div class="data data_center">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <div class="data lsk_data data_right">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <!-- ligne 6 -->
+        <div class="data lsk_data data_left">
+          <div class="data_title">
+            Co rte
+          </div>
+          <div class="data_value">
+            0000987
+          </div>
+        </div>
+
+        <div class="data data_center">
+          <div class="data_title">
+
+          </div>
+          <div class="data_value">
+
+          </div>
+        </div>
+
+        <div class="data lsk_data data_right">
+          <div class="data_title">
+            From/to
+          </div>
+          <div class="data_value">
+            ____/____
+          </div>
+        </div>
+      </div>
+
+      <div id="display_input">
+
+      </div>
+    </div>
+
+    <div id="lsk_right">
+      <div id="lsk_r1" onclick="onLSKClick('LSK1R')" class="lsk_button"><div></div></div>
+      <div id="lsk_r2" onclick="onLSKClick('LSK2R')" class="lsk_button"><div></div></div>
+      <div id="lsk_r3" onclick="onLSKClick('LSK3R')" class="lsk_button"><div></div></div>
+      <div id="lsk_r4" onclick="onLSKClick('LSK4R')" class="lsk_button"><div></div></div>
+      <div id="lsk_r5" onclick="onLSKClick('LSK5R')" class="lsk_button"><div></div></div>
+      <div id="lsk_r6" onclick="onLSKClick('LSK6R')" class="lsk_button"><div></div></div>
+    </div>
+  </div>
+
+  <div id="mcdu_south">
+    <div id="mcdu_south_left"></div>
+
+    <div id="mcdu_south_center">
+      <div id="mcdu_south_top">
+        <div id="controls_top">
+          <button	id="DIR">DIR</button>
+          <button	id="PROG">PROG</button>
+          <button	id="PERF">PERF</button>
+          <button	id="INIT">INIT</button>
+          <button	id="DATA">DATA</button>
+          <button id="CLEAR"></button>
+          <button	id="F_PLN">F-PLN</button>
+          <button	id="RAD_NAV">RAD NAV</button>
+          <button	id="FUEL_PRED">FUEL PRED</button>
+          <button	id="SEC_F_PLN">SEC F-PLN</button>
+          <button	id="ATC_COMM">ATC COMM</button>
+          <button	id="MDCU_MENU">MCDU MENU</button>
+        </div>
+      </div>
+
+
+      <div id="mcdu_south_bottom">
+        <div id="mcdu_south_bottom_east">
+          <div id="controls_bottom">
+            <button	id="AIR_PORT">AIR PORT</button>
+            <button></button>
+            <button	id="LEFT_ARROW" class="fleche">←</button>
+            <button	id="UP_ARROW" class="fleche">↑</button>
+            <button	id="RIGHT_ARROW" class="fleche">→</button>
+            <button	id="DOWN_ARROW" class="fleche">↓</button>
+          </div>
+
+          <div id="clavier_chiffre">
+            <button	id="1">1</button>
+            <button	id="2">2</button>
+            <button	id="3">3</button>
+            <button	id="4">4</button>
+            <button	id="5">5</button>
+            <button	id="6">6</button>
+            <button	id="7">7</button>
+            <button	id="8">8</button>
+            <button	id="9">9</button>
+            <button	id="point">.</button>
+            <button	id="0">0</button>
+            <button	id="plus-moins">+/-</button>
+          </div>
+        </div>
+
+        <div id="mcdu_south_bottom_ouest">
+          <div id="clavier_lettre">
+            <button	id="A">A</button>
+            <button	id="B">B</button>
+            <button	id="C">C</button>
+            <button	id="D">D</button>
+            <button	id="E">E</button>
+            <button	id="F">F</button>
+            <button	id="G">G</button>
+            <button	id="H">H</button>
+            <button	id="I">I</button>
+            <button	id="J">J</button>
+            <button	id="K">K</button>
+            <button	id="L">L</button>
+            <button	id="M">M</button>
+            <button	id="N">N</button>
+            <button	id="O">O</button>
+            <button	id="P">P</button>
+            <button	id="Q">Q</button>
+            <button	id="R">R</button>
+            <button	id="S">S</button>
+            <button	id="T">T</button>
+            <button	id="U">U</button>
+            <button	id="V">V</button>
+            <button	id="W">W</button>
+            <button	id="X">X</button>
+            <button	id="Y">Y</button>
+            <button	id="Z">Z</button>
+            <button	id="slash">/</button>
+            <button	id="SP">SP</button>
+            <button	id="ovfy">ovfy</button>
+            <button	id="CLR">CLR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mcdu_south_right">
+      <div id="BRT">
+        <div class="barre"></div>
+        <div class="text">
+          BRT
+        </div>
+      </div>
+      <div id="DIM">
+        <div class="text">
+          DIM
+        </div>
+        <div class="barre"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,172 +1,44 @@
 class Ecran {
-    dom = document.getElementsByClassName('ecran-ligne');
-    inputTextElt = document.getElementById('inputText');
+    datasLeftElt = document.getElementsByClassName('data_left');
+    datasRightElt = document.getElementsByClassName('data_right');
+    datasCenterElt = document.getElementsByClassName('data_center');
+    inputTextElt = document.getElementById('display_input');
 
-    data = [
-        [
-            {
-                direction: 'L',
-                value: {
-                    text: 'Test 1',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'C',
-                value: {
-                    text: 'Test 1',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'R',
-                value: {
-                    text: 'Test 1',
-                    color: 'white'
-                }
-            }
-        ],
-        [
-            {
-                direction: 'L',
-                value: {
-                text: 'Test 2',
-                color: 'white'
-                }
-            },
-            {
-                direction: 'C',
-                value: {
-                    text: 'Test 2',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'R',
-                value: {
-                    text: 'Test 2',
-                    color: 'white'
-                }
-            }
-        ],
-        [
-            {
-                direction: 'L',
-                value: {
-                    text: 'Test 3',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'C',
-                value: {
-                    text: 'Test 3',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'R',
-                value: {
-                    text: 'Test 3',
-                    color: 'white'
-                }
-            }
-        ],
-        [
-            {
-                direction: 'L',
-                value: {
-                    text: 'Test 4',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'C',
-                value: {
-                    text: 'Test 4',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'R',
-                value: {
-                    text: 'Test 4',
-                    color: 'white'
-                }
-            }
-        ],
-        [
-            {
-                direction: 'L',
-                value: {
-                    text: 'Test 5',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'C',
-                value: {
-                    text: 'Test 5',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'R',
-                value: {
-                    text: 'Test 5',
-                    color: 'white'
-                }
-            }
-        ],
-        [
-            {
-                direction: 'L',
-                value: {
-                    text: 'Test 6',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'C',
-                value: {
-                    text: 'Test 6',
-                    color: 'white'
-                }
-            },
-            {
-                direction: 'R',
-                value: {
-                    text: 'Test 6',
-                    color: 'white'
-                }
-            }
-        ]
-    ];
-
-    getlskValueElt(lskNum, direction) {
-        let directionNum = 0;
+    getDataLabelElt(lskNum, direction) {
         switch (direction) {
             case "C":
-                directionNum = 1;
-                break;
+                return this.datasCenterElt[lskNum-1].getElementsByClassName('data_title')[0];
             case "L":
-                directionNum = 0;
-                break;
+                return this.datasLeftElt[lskNum-1].getElementsByClassName('data_title')[0];
             case "R":
-                directionNum = 2;
+                return this.datasRightElt[lskNum-1].getElementsByClassName('data_title')[0];
         }
-        return this.dom[lskNum - 1].getElementsByTagName('div')[directionNum];
     }
 
-    setvalue(lskKey) {
-        let lskValueElt = this.getlskValueElt(lskKey.num, lskKey.direction);
-        lskValueElt.innerHTML = lskKey.value.text;
-        lskValueElt.style.color = lskKey.value.couleur;
+    getDataValueElt(lskNum, direction) {
+        switch (direction) {
+            case "C":
+                return this.datasCenterElt[lskNum-1].getElementsByClassName('data_value')[0];
+            case "L":
+                return this.datasLeftElt[lskNum-1].getElementsByClassName('data_value')[0];
+            case "R":
+                return this.datasRightElt[lskNum-1].getElementsByClassName('data_value')[0];
+        }
+    }
+
+    setData(data) {
+        const dataValueElt = this.getDataValueElt(data.num, data.direction);
+        const dataLabelElt = this.getDataLabelElt(data.num, data.direction);
+
+        dataValueElt.innerHTML = data.value.text;
+        dataValueElt.style.color = data.value.couleur;
+
+        dataLabelElt.innerHTML = data.value.label;
     }
 
     initializationKeyboard() {
-        const lettresElt = document.getElementsByClassName('clavier_lettres')[0].getElementsByTagName('button');
-        const chiffresElt = document.getElementsByClassName('clavier_chiffres')[0].getElementsByTagName('button');
+        const lettresElt = document.getElementById('clavier_lettre').getElementsByTagName('button');
+        const chiffresElt = document.getElementById('clavier_chiffre').getElementsByTagName('button');
 
         for (let lettreElt of lettresElt) {
             lettreElt.addEventListener("click",() => this.keyPressed(lettreElt.id, 'L'));
@@ -180,8 +52,8 @@ class Ecran {
     }
 
     listenControlKey(callback) {
-        const controls1Elt = document.getElementsByClassName('clavier_commandes')[0].getElementsByTagName('button');
-        const controls2Elt = document.getElementsByClassName('clavier_fleches')[0].getElementsByTagName('button');
+        const controls1Elt = document.getElementById('controls_top').getElementsByTagName('button');
+        const controls2Elt = document.getElementById('controls_bottom').getElementsByTagName('button');
         for (let keyElt of controls1Elt) {
             keyElt.addEventListener("click", () => callback(keyElt.id));
         }

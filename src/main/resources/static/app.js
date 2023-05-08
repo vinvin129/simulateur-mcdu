@@ -12,8 +12,11 @@ function connect() {
             console.log(JSON.parse(greeting.body));
             const json = JSON.parse(greeting.body);
             let lskKey = json.lskKey;
-            ecranSystem.setvalue({num: parseInt(lskKey[3]), direction: lskKey[4], value: {text: json.donnee.valeur, couleur: json.donnee.couleur}})
+            ecranSystem.setData({num: parseInt(lskKey[3]), direction: lskKey[4], value: {label: json.donnee.label, text: json.donnee.valeur, couleur: json.donnee.couleur}})
         });
+
+        stompClient.send("/mcdu/emit/connexion");
+
         ecranSystem.listenControlKey(key => {
             stompClient.send("/mcdu/emit/click/control", {}, JSON.stringify({
                 key: key,

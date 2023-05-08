@@ -1,5 +1,6 @@
 .ecran {
-	height : 284px;
+	display: grid;
+	height : 265px;
 	background : black;
 	color: white;
 }

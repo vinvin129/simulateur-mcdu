@@ -1,0 +1,264 @@
+body {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+#ovfy {
+    font-size: 85%;
+}
+
+/* DEBUT MCDU_SIMULATOR */
+#mcdu_simulator {
+    margin-left: auto;
+    margin-right: auto;
+    width: 430px;
+    background-color: rgb(170, 170, 170);
+    padding: 0 5px 5px;
+}
+/* FIN MCDU_SIMULATOR */
+
+/* DEBUT LSK */
+.lsk_button {
+    position: relative;
+    height: 15px;
+    width: 30px;
+
+    background-color: rgb(51, 51, 51);
+    color: white;
+    border:none;
+    border-radius:5px;
+
+    cursor: pointer;
+}
+
+.lsk_button div {
+    position: relative;
+    height: 3px;
+    width: 20px;
+    top: calc(50% - 3px / 2);
+    left: calc(50% - 20px / 2);
+
+    background-color: white;
+}
+/* FIN LSK */
+
+/* DEBUT MCDU_SOUTH */
+#mcdu_south {
+    display: grid;
+    grid-template-columns: 0.6fr 0.8fr 0.5fr;
+}
+
+    /* DEBUT CLAVIER LETTRE */
+    #clavier_lettre {
+        margin: 5px;
+        width: calc(100% - 5px);
+        height: calc(100% - 5px);
+        display: grid;
+        grid-template-columns: repeat(5, 40px);
+        grid-column-gap: 5px;
+        grid-row-gap: 0.8em;
+    }
+
+    #clavier_lettre button {
+        background-color: rgb(51, 51, 51);
+        color: white;
+        border-radius:5px;
+    }
+    /* FIN CLAVIER LETTRE */
+
+    /* DEBUT CLAVIER CHIFFRE */
+    #clavier_chiffre {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 145px;
+        display: grid;
+        grid-template-columns: repeat(3, 35px);
+        grid-column-gap: 5px;
+        grid-row-gap: 0.5em;
+    }
+
+    #clavier_chiffre button {
+        background-color: rgb(51, 51, 51);
+        color: white;
+        border-radius:50%;
+    }
+    /* FIN CLAVIER CHIFFRE */
+
+    /* DEBUT CONTROLS TOP */
+    #controls_top {
+        background-color: rgb(136, 136, 136);
+        display: grid;
+        grid-template-columns: repeat(6, 51px);
+        grid-column-gap: 5px;
+        grid-row-gap: 10px;
+        width: fit-content;
+        padding: 5px;
+        border-radius:5px 5px 5px 0;
+    }
+
+    #controls_top button {
+        background-color: rgb(51, 51, 51);
+        color: white;
+        border-radius:5px;
+        width: 51px;
+        height: 30px;
+        font-size: 85%;
+    }
+    /* FIN CONTROLS TOP */
+
+    /* DEBUT CONTROLS BOTTOM */
+    #controls_bottom {
+        background-color: rgb(136, 136, 136);
+        display: grid;
+        grid-template-columns: repeat(2, 51px);
+        grid-column-gap: 5px;
+        grid-row-gap: 10px;
+        width: fit-content;
+        padding: 5px;
+        border-radius:0 0 5px 5px;
+    }
+
+    #controls_bottom button {
+        background-color: rgb(51, 51, 51);
+        color: white;
+        border-radius:5px;
+        width: 51px;
+        height: 30px;
+        font-size: 85%;
+    }
+
+    #controls_bottom button.fleche {
+        font-size: 100%;
+    }
+    /* FIN CONTROLS BOTTOM */
+
+    /* DEBUT MCDU SOUTH RIGHT */
+    /*#mcdu_south_right {
+        width: fit-content;
+    }*/
+
+    #mcdu_south_right #BRT, #mcdu_south_right #DIM {
+        width: 35px;
+        height: 30px;
+        background-color: rgb(51, 51, 51);
+        color: white;
+        border-radius:5px;
+        text-align: center;
+        font-family: monospace;
+        font-size: 120%;
+        cursor: pointer;
+    }
+
+    #mcdu_south_right #BRT {
+        margin-top: 5px;
+    }
+
+    #mcdu_south_right #DIM {
+        margin-top: 10px;
+    }
+
+    #mcdu_south_right .barre {
+        position: relative;
+        top: 3px;
+        width: 29px;
+        left: 3px;
+        height: 7px;
+
+        background-color: rgb(187, 187, 187);
+    }
+
+    #mcdu_south_right #BRT .text{
+        position: relative;
+        top: 5px;
+        font-size: 90%;
+    }
+
+    #mcdu_south_right #DIM .text{
+        position: relative;
+        top: 2px;
+        bottom: 5px;
+        font-size: 90%;
+    }
+    /* FIN MCDU SOUTH RIGHT */
+/* FIN MCDU SOUTH */
+
+/* DEBUT MCDU NORTH */
+#mcdu_north {
+    width: 420px;
+    height: 200px;
+    padding: 5px;
+
+    display: grid;
+    grid-template-columns: 0.1fr 0.8fr 0.1fr;
+}
+
+    /* DEBUT LSK COLUMN */
+    #lsk_left, #lsk_right {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-top: 25px;
+        padding-bottom: 5px;
+        justify-items: center;
+    }
+    /* FIN LSK COLUMN */
+
+    /* DEBUT DISPLAY */
+    #display {
+        color: white;
+        background-color: black;
+        font-family: monospace;
+        text-transform: uppercase;
+        border-radius: 5px;
+    }
+
+    #display_title {
+        text-align: center;
+    }
+
+    #display_data {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: 4px;
+    }
+
+    .data {
+        font-size: x-small;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .data_right {
+        text-align: right;
+    }
+
+    .data_center {
+        text-align: center;
+    }
+
+    #display_input {
+        margin-top: 3px;
+        padding-left: 5px;
+        font-size: small;
+    }
+    /* FIN DISPLAY */
+/* FIN MCDU NORTH */
+
+/* DEBUT MCDU SOUTH */
+#mcdu_south_bottom {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: fit-content;
+}
+
+#mcdu_south_bottom_east {
+    width: fit-content;
+}
+/* FIN MCDU SOUTH */
