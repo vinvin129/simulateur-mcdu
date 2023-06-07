@@ -1,0 +1,12 @@
+asyncapi: '2.6.0'
+info:
+  title: Hello world application
+  version: '0.1.0'
+servers:
+  public:
+    url: ws://api.gemini.com
+    protocol: ws
+channels:
+  /setting/receive/click/lsk:
+    subscribe:
+      summary: Receive market updates on a given symbol
