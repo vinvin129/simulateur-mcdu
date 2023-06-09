@@ -1,0 +1,23 @@
+asyncapi: '2.6.0'
+info:
+  title: Hello world application
+  version: '0.1.0'
+channels:
+  /mcdu/emit/click/lsk:
+    publish:
+      summary: Prévenir lors d'un click sur une touche LSK du MCDU et transmettre l'input.
+  /setting/receive/click/lsk:
+    subscribe:
+      summary: Permet lors d'un click sur une touche LSK du MCDU de savoir laquelle, et de transmettre l'input.
+  /mcdu/emit/click/control:
+    publish:
+      summary: Prévenir lors d'un click sur une touche de contrôle du MCDU et transmettre l'input.
+  /setting/receive/click/control:
+    subscribe:
+      summary: Permet lors d'un click sur une touche de contrôle du MCDU de savoir laquelle, et de transmettre l'input.
+  /mcdu/emit/connexion:
+    publish:
+      summary: Permet de prévenir de la connexion du MCDU et actualiser l'affichage (envoi des données au MCDU).
+  /mcdu/receive/newView:
+    subscribe:
+      summary: Evénement déclenché lors d'un changement de l'affichage.

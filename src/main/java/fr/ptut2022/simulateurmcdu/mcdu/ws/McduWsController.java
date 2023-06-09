@@ -4,7 +4,6 @@ import fr.ptut2022.simulateurmcdu.mcdu.Mcdu;
 import fr.ptut2022.simulateurmcdu.mcdu.models.ChangementDonnee;
 import fr.ptut2022.simulateurmcdu.mcdu.models.ControlClickResult;
 import fr.ptut2022.simulateurmcdu.mcdu.models.LSKClickResult;
-import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
