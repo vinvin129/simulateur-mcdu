@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>MCDU v2</title>
   <link href="mcdu_squelette.css" rel="stylesheet" type="text/css">
+  <link href="navbar.css" rel="stylesheet" type="text/css">
   <script src="/webjars/jquery/jquery.min.js"></script>
   <script src="/webjars/sockjs-client/sockjs.min.js"></script>
   <script src="/webjars/stomp-websocket/stomp.min.js"></script>
@@ -11,6 +12,12 @@
   <script type="module" src="/app.js"></script>
 </head>
 <body>
+<nav>
+  <ul>
+    <li><a href="/asyncapi/index.html">Documentation Websocket</a></li>
+    <li><a href="/swagger-ui/index.html#/">Documentation REST API</a></li>
+  </ul>
+</nav>
 <div id="mcdu_simulator">
   <div id="mcdu_north">
     <div id="lsk_left">
